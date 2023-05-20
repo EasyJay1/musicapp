@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+    <style>
+      legend {
+      color: #fff;
+      background-color: #095484;
+      padding: 3px 5px;
+      font-size: 20px;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      font-size: 36px;
+      color: #fff;
+      z-index: 2;
+      }
+
+      }
+
+		/* Styling the body */
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		/* Styling the list tags to the
+		right of the navigation bar */
+		.nav_jan {
+  			color: black;
+			float: right;
+			list-style: none;
+			font-size: 1.2rem;
+			font-weight: 550;
+			display: flex !important;
+			text-decoration: none;
+		}
+.nav_jan li {
+  margin-right: 60px;
+}
+.nav_jan a:hover {
+  text-decoration: none;
+    color: #74cfbf;
+
+}
+.nav_jan li a {
+text-decoration: none;
+  color: black;
+}
+
+
+		/* Giving position and margin
+		to the content-div */
+		.content {
+			width: 100%;
+			position: absolute;
+			top: 5%;
+			right: 50px;
+		}
+
+		/* Styling the left-col by
+		giving margin */
+		.left-col {
+			margin-left: 11%;
+		}
+
+		/* Styling the my sound placed
+		in the left-col */
+		.left-col h1 {
+			font-size: 50px;
+			color: crimson;
+		}
+
+		/* Styling the right-col */
+		.right-col {
+			float: right;
+			margin-right: 10%;
+			margin-top: -5%;
+			display: flex;
+			align-items: center;
+		}
+
+		/* Styling the text in the right-col */
+		.right-col p {
+			font-size: 21px;
+			color: green;
+			font-weight: 650;
+			margin-right: 20px;
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<ul class="nav_jan">
+			<li><a href="{% url 'index' %}">HOME</a></li>
+			<li><a href="{% url 'artist' %}">ARTISTS</a></li>
+            <li><a href="{% url 'emptysample' %}">ABOUT US</a></li>
+			<li><a href="{% url 'contact' %}">CONTACT</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<div class="left-col">
+
+    <div class="cart">
+        <h3>Hello, {{ request.user.username|slice:":10"|upper }}{% if request.user.username|length > 10 %}...{% endif %}</h3>
+        <a href="{% url 'cart' %}" style="color:white; text-decoration:none">
+        </a>
+    </div>
+
+
+</body>
+</html>

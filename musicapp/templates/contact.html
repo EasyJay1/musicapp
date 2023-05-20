@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% include 'base.html' %}
+{% block content %}
+
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+  </style>
+
+</head>
+<body>
+<div class="about-section">
+  <p>We'd love to hear from you! If you have any questions, feedback, or inquiries, please don't hesitate to get in touch with us. You can reach us using the contact details below or by filling out the contact form..</p>
+ <h3>Contact Information</h3>
+<p><strong>Email:</strong> contest.open@gmail.com</p>
+<p><strong>Phone:</strong> +1 123-456-7890, +234 7043268591</p>
+<p><strong>HQ Address:</strong> 23 Main Street, Prone City, USA</p>
+
+<!-- contact.html -->
+<h3>Contact Form</h3>
+<form action="/contact" method="POST">
+  {% csrf_token %}
+
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+
+  <div>
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+  </div>
+
+  <button action="/contact" method="POST" type="submit">Send Message</button>
+</form>
+
+
+
+</div>
+
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+
+      <img src="{% static 'images/ceo.png' %}" alt="Easy jay" style="width:100%">
+      <div class="container">
+        <h2>Easy Jay</h2>
+        <p class="title">CEO & Founder</p>
+        <p>Musical Ochestrator.</p>
+        <p>michaelglory723@gmail.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'images/music1.png' %}" alt="mike" style="width:100%">
+      <div class="container">
+        <h2>Mike Ross</h2>
+        <p class="title">Art Director</p>
+        <p>International Brand Amb</p>
+        <p>mike@gmail.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'images/female.png' %}" alt="Ross" style="width:100%">
+      <div class="container">
+        <h2>Ross Doe</h2>
+        <p class="title">Designer</p>
+        <p>Promoter.</p>
+        <p>RossD@hotmail.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+    {% endblock %}
+</body>
+</html>
